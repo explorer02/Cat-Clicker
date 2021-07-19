@@ -33,3 +33,13 @@
 .canvas > img {
   width: 70%;
 }
+
+.admin {
+  display: flex;
+  width: 80vw;
+  gap: 5rem;
+}
+.admin input {
+  margin-left: 1rem;
+  padding: 0.2rem;
+}
