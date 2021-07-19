@@ -3,7 +3,25 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 2rem;
 }
-.counter {
+.container {
+  display: flex;
+}
+.cat-holder {
+  display: flex;
+  flex-direction: column;
+}
+.cat-holder > p {
+  font-size: large;
+}
+.cat-holder > img {
+  max-width: 80%;
+  max-height: 80%;
+}
+.counters {
   font-size: xx-large;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
