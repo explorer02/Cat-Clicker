@@ -1,39 +1,32 @@
-const cats = ["Cat 1", "Cat 2", "Cat 3", "Cat 4"];
-const counters = document.querySelector(".counters");
-const container = document.querySelector(".container");
-let counts = [0];
+const cats = ["Cat 1", "Cat 2", "Cat 3", "Cat 4", "Cat 5"];
 
-function displayCats() {
-  cats.forEach((e, i) => {
-    const div = document.createElement("div");
-    div.classList.add("cat-holder");
-    div.innerHTML = `
-        <p>${e}</p>
-        <img src="${`./assets/cat${i + 1}.jpeg`}"/>`;
-    container.appendChild(div);
-  });
-}
-displayCats();
+let counts = [];
+let currentCat = 0;
 
-function displayCounter() {
+function displayCatList() {
+  const catList = document.querySelector(".catList");
   cats.forEach((e, i) => {
-    const div = document.createElement("div");
-    div.classList.add("counter" + (i + 1));
-    div.textContent = `Counter ${i + 1}: 0`;
-    counters.appendChild(div);
+    const p = document.createElement("p");
+    p.textContent = e;
+    p.addEventListener("click", updateCanvas.bind(null, i));
+    catList.append(p);
     counts.push(0);
   });
 }
-displayCounter();
+displayCatList();
 
-function updateCounter(i) {
-  document.querySelector(
-    `.counter${i}`
-  ).textContent = `Counter ${i}: ${++counts[i]}`;
+function updateCanvas(i) {
+  currentCat = i;
+  const catImg = document.querySelector(".canvas>img");
+  const catTitle = document.querySelector(".canvas>.title");
+  const catCounter = document.querySelector(".canvas>.counter");
+  console.log(catImg);
+  catImg.src = `./assets/cat${i + 1}.jpeg`;
+
+  catTitle.textContent = cats[i];
+  catCounter.textContent = "Count:" + counts[i];
 }
-
-document
-  .querySelectorAll("img")
-  .forEach((e, i) =>
-    e.addEventListener("click", updateCounter.bind(null, i + 1))
-  );
+document.querySelector(".canvas>img").addEventListener("click", (ev) => {
+  counts[currentCat]++;
+  updateCanvas(currentCat);
+});

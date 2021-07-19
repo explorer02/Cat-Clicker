@@ -1,27 +1,22 @@
-body {
+* {
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
 }
+
 .container {
   display: flex;
+  justify-content: center;
+  width: 100%;
 }
-.cat-holder {
+.catList {
   display: flex;
   flex-direction: column;
+  flex: 0 1 20%;
 }
-.cat-holder > p {
-  font-size: large;
-}
-.cat-holder > img {
-  max-width: 80%;
-  max-height: 80%;
-}
-.counters {
-  font-size: xx-large;
+.canvas {
   display: flex;
-  width: 100%;
-  justify-content: space-around;
+  flex-direction: column;
+  flex: 0 1 60%;
+}
+.canvas > img {
+  width: 90%;
 }
