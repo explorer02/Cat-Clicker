@@ -1,0 +1,9 @@
+body {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.counter {
+  font-size: xx-large;
+}
